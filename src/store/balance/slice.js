@@ -12,13 +12,23 @@ export const balanceSlice = createSlice({
   reducers: {
     //also need to add the parameters
     deposit: (state, action) => {
+      //adds 10
       state.amount = state.amount + action.payload; //the logic
     },
-    withdraw: (state, action) => {},
+    //adding a other port for the withdraw logic
+    withdraw: (state, action) => {
+      //remove 10
+      state.amount = state.amount - action.payload;
+    },
+    //reset the amount
+    reset: (state, action) => {
+      state.amount = 0;
+      // state.amount = initialState.amount; Also works
+    },
   },
 });
 //here goes the key
-export const { deposit } = balanceSlice.actions;
+export const { deposit, withdraw, reset } = balanceSlice.actions;
 
 export default balanceSlice.reducer;
 
