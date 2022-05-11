@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 //importing the action
 import { deposit, withdraw, reset } from "../store/balance/slice";
+import { registerTransaction } from "../store/transaction/slice";
 import { selectBalance } from "../store/balance/selectors";
 
 function BalanceDetails() {
@@ -19,6 +20,7 @@ function BalanceDetails() {
         onClick={() => {
           //inside de button calls the action , the logic
           dispatch(deposit(10));
+          dispatch(registerTransaction(10));
         }}
       >
         Deposit 10$
@@ -28,6 +30,7 @@ function BalanceDetails() {
       <button
         onClick={() => {
           dispatch(withdraw(10));
+          dispatch(registerTransaction(-10));
         }}
       >
         Withdraw 10$
@@ -49,6 +52,7 @@ function BalanceDetails() {
       <button
         onClick={() => {
           dispatch(deposit(customAmount));
+          dispatch(registerTransaction(customAmount));
           setCustomAmount(0);
         }}
       >

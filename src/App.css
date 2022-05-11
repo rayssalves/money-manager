@@ -51,3 +51,10 @@
 .App input {
   font-size: 20px;
 }
+.negative-value {
+  color: red;
+}
+
+.positive-value {
+  color: green;
+}
